@@ -1,137 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/New-mimicry.css">
-    <link rel="stylesheet" href="./css/clock.css">
-    <!-- <link rel="stylesheet" href="./css/modal.css"> -->
-    <link href="./css/all.min.css" rel="stylesheet">
-    <title>静态导航页</title>
-    <link rel="icon" href="./icos/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>拟态导航页</title>
+  <link rel="stylesheet" href="./css/iStyle.css">
+  <script src="./js/iScript.js"></script>
 </head>
 
 <body>
-    <div class="container0">
-        <div id="top">
-            <!-- 时钟-->
-            <div class="clock">
-                <div class="flip">
-                    <div class="digital front" data-number="0"></div>
-                    <div class="digital back" data-number="1"></div>
-                </div>
-                <div class="flip">
-                    <div class="digital front" data-number="0"></div>
-                    <div class="digital back" data-number="1"></div>
-                </div>
-                <em class="divider">:</em>
-                <div class="flip">
-                    <div class="digital front" data-number="0"></div>
-                    <div class="digital back" data-number="1"></div>
-                </div>
-                <div class="flip">
-                    <div class="digital front" data-number="0"></div>
-                    <div class="digital back" data-number="1"></div>
-                </div>
-                <em class="divider">:</em>
-                <div class="flip">
-                    <div class="digital front" data-number="0"></div>
-                    <div class="digital back" data-number="1"></div>
-                </div>
-                <div class="flip">
-                    <div class="digital front" data-number="0"></div>
-                    <div class="digital back" data-number="1"></div>
-                </div>
-            </div>
-            <!-- 搜索框 -->
-            <div class="search-box" id="search-engine">
-                <input type="text" placeholder="请输入搜索关键词" name="q" class="text" id="search-input">
-                <button id="search-button">
-                    <select class="search-box1" id="engine-select">
-                        <option value="bing">必应搜索</option>
-                        <option value="baidu">百度一下</option>
-                    </select>
-                </button>
-            </div>
+  <div class="container">
+    <div class="datetime">
+      <div class="time" id="time"></div>
+      <div class="date-lunar" id="date-lunar"></div>
+    </div>
+    <div class="search-container">
+      <input type="text" class="search-input" id="search-input" placeholder="输入关键词">
+      <button class="search-button" onclick="search()">搜&nbsp;&nbsp;索</button>
+    </div>
+    <div class="search-engine">
+      <label><input type="radio" name="search-engine" value="bing" checked> Bing</label>
+      <label><input type="radio" name="search-engine" value="google"> Google</label>
+    </div>
+  </div>
 
-            <div class="container" id="firstdiv">
-                <div class="box add-box" id="addBox">
-                    <a href="https://www.duanjuwang.cc/" id="addLink">
-                        <div class="img">
-                            <img src="https://www.pctools.cc/tool/favicon/favicon.php?url=https://www.duanjuwang.cc/"
-                                alt="图标" />
-                        </div>
-                    </a>
-                    <p>短剧集</p>
-                </div>
-                <div class="box add-box" id="addBox">
-                    <a href="https://duanju001.com/" id="addLink">
-                        <div class="img">
-                            <img src="https://www.pctools.cc/tool/favicon/favicon.php?url=https://duanju001.com/"
-                                alt="图标" />
-                        </div>
-                    </a>
-                    <p>短剧集</p>
-                </div>
-                <div class="box add-box" id="addBox">
-                    <a href="https://www.weiyuntv.com/" id="addLink">
-                        <div class="img">
-                            <img src="https://www.pctools.cc/tool/favicon/favicon.php?url=https://www.weiyuntv.com/"
-                                alt="图标" />
-                        </div>
-                    </a>
-                    <p>短剧集</p>
-                </div>
-                <!-- 网址盒子 target="_blank" -->
-                <div class="box add-box" id="addBox" onclick="openModal()">
-                    <a href="#" id="addLink">
-                        <div class="img">
-                            <img src="./icos/Add.png" alt="添加图标" />
-                        </div>
-                    </a>
-                    <p>添加网址</p>
-                </div>
-
-                <!-- 模态框（用于输入新网址） -->
-                <div id="modal" class="modal"
-                    style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.5); z-index:999;">
-                    <div class="modal-content"
-                        style="background-color:white; margin:15% auto; padding:20px; width:300px; text-align:center;">
-                        <form id="websiteForm">
-                            <div class="modal-buttons">
-                                <label>网址</label>
-                                <input type="text" id="new-url-link" class="form-control" name="t_name1" placeholder="">
-                            </div>
-                            <div class="modal-buttons">
-                                <label>名字</label>
-                                <input type="text" id="new-url-name" class="form-control" name="t_name2" placeholder="">
-                            </div>
-                            <div class="modal-buttons">
-                                <button type="button" id="btn_id1" class="btn btn-default"
-                                    onclick="saveUrl()">提交</button>
-                                <button type="button" id="btn_id2" class="btn btn-default"
-                                    onclick="closeModal()">关闭</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <!-- 模态框结束 -->
-
-
-            </div>
-            <div
-                style="text-align: center; padding: 10px; font-size: 12px; color: gray; position: fixed; left: 0; bottom: 0; width: 100%;">
-                © 2024 导航页 @含光
-                <br>
-                <a href="https://hanguangjun.netlify.app/"
-                    style="color: gray; text-decoration: none;">https://hanguangjun.netlify.app/</a>
-            </div>
-            <div></div>
+  <div class="website-tags">
+    <div class="box add-box" id="addBox">
+      <a href="https://www.duanjuwang.cc/" id="addLink">
+        <div class="img">
+          <img src="https://www.pctools.cc/tool/favicon/favicon.php?url=https://www.duanjuwang.cc/" alt="图标" />
         </div>
+      </a>
+      <p>短剧集</p>
+    </div>
+    <div class="box add-box" id="addBox">
+      <a href="https://duanju001.com/" id="addLink">
+        <div class="img">
+          <img src="https://www.pctools.cc/tool/favicon/favicon.php?url=https://duanju001.com/" alt="图标" />
+        </div>
+      </a>
+      <p>短剧集</p>
+    </div>
+    <div class="box add-box" id="addBox">
+      <a href="https://www.weiyuntv.com/" id="addLink">
+        <div class="img">
+          <img src="https://www.pctools.cc/tool/favicon/favicon.php?url=https://www.weiyuntv.com/" alt="图标" />
+        </div>
+      </a>
+      <p>短剧集</p>
+    </div>
+    <div class="box add-box" id="addBox" onclick="openModal()">
+      <a href="#">
+        <div class="img">
+          <img src="./icos/Add.png" alt="添加">
+        </div>
+      </a>
+      <p>添加网址</p>
+    </div>
+  </div>
 
-        <script src="./js/script.js"></script>
-
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <form id="websiteForm">
+        <div class="modal-buttons">
+          <label>网址</label>
+          <input type="url" id="new-url-link" class="form-control" required placeholder="https://example.com">
+        </div>
+        <div class="modal-buttons">
+          <label>名称</label>
+          <input type="text" id="new-url-name" class="form-control" required placeholder="网站名称">
+        </div>
+        <div class="modal-buttons">
+          <button type="button" onclick="saveUrl()">提交</button>
+          <button type="button" onclick="closeModal()">关闭</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div
+    style="text-align: center; padding: 10px; font-size: 12px; color: gray; position: fixed; left: 0; bottom: 0; width: 100%;">
+    © 2024 导航页 @含光
+    <br>
+    <a href="https://hanguangjun.netlify.app/"
+      style="color: gray; text-decoration: none;">https://hanguangjun.netlify.app/</a>
+  </div>
+  <div></div>
+  </div>
+  <!-- <script>
+    document.getElementById('img').onerror = function () {
+      this.onerror = null; // 防止一直触发错误事件
+      this.src = './icos/default.png'; // 替换为你自定义的图标路径
+    };
+  </script> -->
 </body>
 
 </html>

@@ -1,0 +1,236 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f0f0f0, #c0c0c0);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px 0;
+}
+
+.container {
+  background-color: rgba(240, 240, 240, 0.8);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 9px 9px 16px rgba(192, 192, 192, 0.6),
+    -9px -9px 16px rgba(255, 255, 255, 0.5);
+  text-align: center;
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.datetime {
+  margin-bottom: 30px;
+}
+
+.time {
+  font-size: 3.5em;
+  color: #333;
+  font-weight: 200;
+}
+
+.date-lunar {
+  color: #666;
+  font-size: 1.2em;
+  margin-top: 8px;
+}
+
+/* 修改后的搜索框部分 */
+.search-container {
+  display: flex;
+  justify-content: center;
+  /* 搜索框居中 */
+  align-items: center;
+  position: relative;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 15px;
+  background: #e0e0e0;
+  box-shadow: inset 4px 4px 8px rgba(192, 192, 192, 0.6),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.5);
+  font-size: 1em;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  box-shadow: inset 4px 4px 8px rgba(192, 192, 192, 0.6),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.5),
+    0 0 10px rgba(0, 123, 255, 0.3);
+}
+
+/* 新版搜索按钮 */
+.search-button {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: linear-gradient(145deg, #62a4e9, #3272b7);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 3px 3px 8px rgba(192, 192, 192, 0.6),
+    -3px -3px 8px rgba(255, 255, 255, 0.5),
+    2px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.search-button:hover {
+  background: linear-gradient(145deg, #0062cc, #005cbf);
+  box-shadow: 2px 2px 6px rgba(192, 192, 192, 0.6),
+    -2px -2px 6px rgba(255, 255, 255, 0.5),
+    1px 1px 3px rgba(0, 0, 0, 0.1);
+  transform: translateY(-50%) scale(0.98);
+}
+
+.search-button:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.website-tags {
+  width: 90%;
+  max-width: 600px;
+  margin: 20px auto 0;
+  padding: 0;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+.box {
+  display: inline-block;
+  margin: 10px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 6px 6px 10px rgba(192, 192, 192, 0.6),
+    -6px -6px 10px rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+  position: relative;
+  vertical-align: top;
+  width: 80px;
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+
+.box:hover {
+  box-shadow: inset 6px 6px 10px rgba(192, 192, 192, 0.6),
+    inset -6px -6px 10px rgba(255, 255, 255, 0.5);
+}
+
+.add-box {
+  background: linear-gradient(145deg, #d0d0d0, #f0f0f0);
+}
+
+.box .img {
+  width: 40px;
+  height: 40px;
+  margin: 10px auto;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+}
+
+.box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.box p {
+  margin: 0;
+  color: #333;
+  font-size: 0.9rem;
+  padding-bottom: 10px;
+  white-space: normal;
+}
+
+.delete-btn {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 20px;
+  height: 20px;
+  background: #ff4444;
+  border-radius: 50%;
+  color: white;
+  text-align: center;
+  line-height: 18px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.modal-content {
+  background-color: white;
+  margin: 15% auto;
+  padding: 20px;
+  width: 300px;
+  border-radius: 10px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 20px;
+  }
+
+  .time {
+    font-size: 2.5em;
+  }
+
+  .box {
+    margin: 8px;
+    width: 70px;
+  }
+
+  .box .img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .delete-btn {
+    top: -5px;
+    right: -5px;
+    width: 18px;
+    height: 18px;
+    line-height: 16px;
+  }
+
+  .modal-content {
+    width: 80%;
+    margin: 30% auto;
+  }
+
+  /* 移动端搜索按钮优化 */
+  .search-button {
+    padding: 6px 15px;
+    font-size: 0.9em;
+  }
+}
