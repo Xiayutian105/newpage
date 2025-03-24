@@ -1,177 +1,124 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #f0f0f0, #c0c0c0);
+  background: linear-gradient(135deg, #e0e5ec, #a3b1c6);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   margin: 0;
-  padding: 20px 0;
 }
 
 .container {
-  background-color: rgba(240, 240, 240, 0.8);
+  background-color: rgba(224, 229, 236, 0.8);
   border-radius: 20px;
-  padding: 40px;
-  box-shadow: 9px 9px 16px rgba(192, 192, 192, 0.6),
-    -9px -9px 16px rgba(255, 255, 255, 0.5);
+  padding: 30px;
+  box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6), -9px -9px 16px rgba(255, 255, 255, 0.5);
   text-align: center;
   width: 90%;
   max-width: 600px;
-  margin: 0 auto;
+  margin-bottom: 15px;
 }
 
 .datetime {
-  margin-bottom: 30px;
+  color: #555;
+  margin-bottom: 20px;
 }
 
 .time {
-  font-size: 3.5em;
-  color: #333;
-  font-weight: 200;
+  margin-bottom: 8px;
+  font-size: 3.5rem;
 }
 
 .date-lunar {
-  color: #666;
-  font-size: 1.2em;
-  margin-top: 8px;
+  font-size: 1.2rem;
 }
 
 .search-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: relative;
+  margin-bottom: 15px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .search-input {
-  width: 100%;
-  padding: 12px 20px;
+  width: 90%;
+  padding: 15px;
   border: none;
-  border-radius: 15px;
-  background: #e0e0e0;
-  box-shadow: inset 4px 4px 8px rgba(192, 192, 192, 0.6),
-    inset -4px -4px 8px rgba(255, 255, 255, 0.5);
-  font-size: 1em;
-  transition: all 0.3s ease;
-}
-
-.search-input:focus {
-  outline: none;
-  box-shadow: inset 4px 4px 8px rgba(192, 192, 192, 0.6),
-    inset -4px -4px 8px rgba(255, 255, 255, 0.5),
-    0 0 10px rgba(0, 123, 255, 0.3);
+  border-radius: 10px;
+  background-color: #e0e5ec;
+  box-shadow: inset 6px 6px 10px rgba(163, 177, 198, 0.6), inset -6px -6px 10px rgba(255, 255, 255, 0.5);
+  color: #555;
+  font-size: 1rem;
 }
 
 .search-button {
   position: absolute;
-  right: 8px;
-  top: 50%;
+  right: 17px;
+  top: 60%;
   transform: translateY(-50%);
+  background-color: #e0e5ec;
   border: none;
-  background: linear-gradient(145deg, #62a4e9, #3272b7);
-  color: white;
-  padding: 8px 20px;
-  border-radius: 12px;
-  font-weight: 500;
+  padding: 11px;
+  border-radius: 10px;
+  box-shadow: 6px 6px 10px rgba(163, 177, 198, 0.6), -6px -6px 10px rgba(255, 255, 255, 0.5);
   cursor: pointer;
-  box-shadow: 3px 3px 8px rgba(192, 192, 192, 0.6),
-    -3px -3px 8px rgba(255, 255, 255, 0.5),
-    2px 2px 5px rgba(0, 0, 0, 0.1);
-  transition: all 0.2s ease;
+  font-size: 1rem;
 }
 
-.search-button:hover {
-  background: linear-gradient(145deg, #0062cc, #005cbf);
-  box-shadow: 2px 2px 6px rgba(192, 192, 192, 0.6),
-    -2px -2px 6px rgba(255, 255, 255, 0.5),
-    1px 1px 3px rgba(0, 0, 0, 0.1);
-  transform: translateY(-50%) scale(0.98);
+.search-engine {
+  margin-top: 10px;
+  color: #777;
 }
 
-.search-button:active {
-  transform: translateY(-50%) scale(0.95);
+.search-engine label {
+  margin-right: 15px;
 }
 
 .website-tags {
-  width: 90%;
-  max-width: 600px;
-  margin: 20px auto 0;
-  padding: 0;
-  overflow-x: auto;
-  white-space: nowrap;
-  -webkit-overflow-scrolling: touch;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  width: 90%;
+  max-width: 600px;
 }
 
-.box {
-  display: inline-block;
+.box.add-box {
   margin: 10px;
-  background-color: #e0e0e0;
+  background-color: #e0e5ec;
   border-radius: 10px;
-  box-shadow: 6px 6px 10px rgba(192, 192, 192, 0.6),
-    -6px -6px 10px rgba(255, 255, 255, 0.5);
+  box-shadow: 6px 6px 10px rgba(163, 177, 198, 0.6), -6px -6px 10px rgba(255, 255, 255, 0.5);
   transition: all 0.3s ease;
-  position: relative;
-  vertical-align: top;
-  width: 80px;
-  -webkit-touch-callout: none;
-  user-select: none;
-
-  flex: 0 0 calc(100% / 7 - 10px);
-  /* 7个box每行，减去一些间距 */
-  margin: 9px;
-  /* 每个box之间的间距 */
-
 }
 
-.box:hover {
-  box-shadow: inset 6px 6px 10px rgba(192, 192, 192, 0.6),
-    inset -6px -6px 10px rgba(255, 255, 255, 0.5);
+.box.add-box:hover {
+  box-shadow: inset 6px 6px 10px rgba(163, 177, 198, 0.6), inset -6px -6px 10px rgba(255, 255, 255, 0.5);
 }
 
-.add-box {
-  background: linear-gradient(145deg, #d0d0d0, #f0f0f0);
+.box.add-box a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
 }
 
-.box .img {
+.box.add-box .img {
   width: 40px;
   height: 40px;
-  margin: 10px auto;
-  padding: 8px;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 8px;
+  margin: 0 auto;
 }
 
-.box img {
+.box.add-box .img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.box p {
+.box.add-box p {
   margin: 0;
   color: #555;
   font-size: 0.9rem;
   padding-bottom: 10px;
-  white-space: normal;
-}
-
-.delete-btn {
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  width: 20px;
-  height: 20px;
-  background: #ff4444;
-  border-radius: 50%;
-  color: white;
   text-align: center;
-  line-height: 18px;
-  cursor: pointer;
-  font-size: 18px;
 }
 
 .modal {
@@ -193,7 +140,6 @@ body {
   border: 1px solid #888;
   width: 80%;
   max-width: 400px;
-  border-radius: 10px;
 }
 
 .modal-buttons {
@@ -204,44 +150,18 @@ body {
   width: 100%;
   padding: 5px;
   margin-top: 5px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
 }
 
-@media (max-width: 480px) {
-  .container {
-    padding: 20px;
+/* 桌面端样式 */
+@media (min-width: 768px) {
+  .box.add-box {
+    width: calc((100% - 6 * 20px) / 7);
   }
+}
 
-  .time {
-    font-size: 2.5em;
-  }
-
-  .box {
-    margin: 8px;
-    width: 70px;
-  }
-
-  .box .img {
-    width: 35px;
-    height: 35px;
-  }
-
-  .delete-btn {
-    top: -5px;
-    right: -5px;
-    width: 18px;
-    height: 18px;
-    line-height: 16px;
-  }
-
-  .modal-content {
-    width: 80%;
-    margin: 30% auto;
-  }
-
-  .search-button {
-    padding: 6px 15px;
-    font-size: 0.9em;
+/* 移动端样式 */
+@media (max-width: 767px) {
+  .box.add-box {
+    width: calc((100% - 3 * 20px) / 4);
   }
 }

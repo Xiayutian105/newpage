@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>拟态导航页</title>
+  <!-- 添加这一行代码，将favicon.ico替换为你的图标文件名 -->
+  <link rel="icon" href="icons/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="./css/iStyle.css">
   <script src="./js/iScript.js"></script>
 </head>
@@ -17,7 +19,7 @@
     </div>
     <div class="search-container">
       <input type="text" class="search-input" id="search-input" placeholder="输入关键词">
-      <button class="search-button" onclick="search()">搜&nbsp;&nbsp;索</button>
+      <button class="search-button" onclick="search()">搜&nbsp;&nbsp;&nbsp;&nbsp;索</button>
     </div>
     <div class="search-engine">
       <label><input type="radio" name="search-engine" value="bing" checked> Bing</label>
@@ -31,25 +33,26 @@
         <div class="img">
           <img src="https://www.pctools.cc/tool/favicon/favicon.php?url=https://www.bilibili.com/" alt="图标" />
         </div>
+        <p>B站</p>
       </a>
-      <p>哔哩哔哩</p>
     </div>
     <div class="box add-box" id="addBox">
-      <a href="https://www.xiaozhongjishu.com/?from=itab/" id="addLink">
+      <a href="https://www.xiaozhongjishu.com/?from=itab" id="addLink">
         <div class="img">
-          <img src="https://www.pctools.cc/tool/favicon/favicon.php?url=https://www.xiaozhongjishu.com/?from=itab/"
+          <img src="https://www.pctools.cc/tool/favicon/favicon.php?url=https://www.xiaozhongjishu.com/?from=itab"
             alt="图标" />
         </div>
+        <p>导航</p>
       </a>
-      <p>小众资源站</p>
     </div>
+
     <div class="box add-box" id="addBox">
       <a href="https://www.duanjuwang.cc/" id="addLink">
         <div class="img">
           <img src="https://www.pctools.cc/tool/favicon/favicon.php?url=https://www.duanjuwang.cc/" alt="图标" />
         </div>
       </a>
-      <p>短剧集</p>
+      <p>短剧</p>
     </div>
     <div class="box add-box" id="addBox">
       <a href="https://duanju001.com/" id="addLink">
@@ -57,20 +60,20 @@
           <img src="https://www.pctools.cc/tool/favicon/favicon.php?url=https://duanju001.com/" alt="图标" />
         </div>
       </a>
-      <p>短剧集</p>
+      <p>短剧</p>
     </div>
     <div class="box add-box" id="addBox">
       <a href="https://www.weiyuntv.com/" id="addLink">
         <div class="img">
-          <img src="https://www.pctools.cc/tool/favicon/favicon.php?url=https://www.weiyuntv.com/" alt="图标" />
+          <img src="./icons/default.png" alt="图标" />
         </div>
       </a>
-      <p>短剧集</p>
+      <p>影视</p>
     </div>
     <div class="box add-box" id="addBox" onclick="openModal()">
       <a href="#">
         <div class="img">
-          <img src="./icos/Add.png" alt="添加">
+          <img src="./icons/Add.png" alt="添加">
         </div>
       </a>
       <p>添加网址</p>
@@ -102,14 +105,6 @@
     <a href="https://hanguangjun.netlify.app/"
       style="color: gray; text-decoration: none;">https://hanguangjun.netlify.app/</a>
   </div>
-  <div></div>
-  </div>
-  <!-- <script>
-    document.getElementById('img').onerror = function () {
-      this.onerror = null; // 防止一直触发错误事件
-      this.src = './icos/default.png'; // 替换为你自定义的图标路径
-    };
-  </script> -->
 </body>
 
 </html>

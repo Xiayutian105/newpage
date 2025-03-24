@@ -32,13 +32,12 @@ function search() {
   const keyword = document.getElementById('search-input').value
   const engine = document.querySelector('input[name="search-engine"]:checked').value
   const urlMap = {
-    bing: `https://www.bing.com/search?q=${encodeURIComponent(keyword)}`,
+    bing: `https://cn.bing.com/search?q=${encodeURIComponent(keyword)}&form=QBLH&sp=-1`,
+    WeChat: `https://weixin.sogou.com/weixin?p=01030402&query=${encodeURIComponent(keyword)}&type=2&ie=utf8`,
     google: `https://www.google.com/search?q=${encodeURIComponent(keyword)}`
   }
   window.open(urlMap[engine], '_blank')
 }
-
-
 
 // 渲染存储的网站标签到页面上
 function renderWebsites() {
@@ -64,12 +63,12 @@ function renderWebsites() {
 
 // 显示添加网站的模态框
 function openModal() {
-  document.getElementById('modal').style.display = 'block'
+  document.getElementById('modal').style.display = 'flex';
 }
 
 // 关闭添加网站的模态框
 function closeModal() {
-  document.getElementById('modal').style.display = 'none'
+  document.getElementById('modal').style.display = 'none';
 }
 
 // 保存用户输入的网站URL和名称，并更新本地存储和页面显示
