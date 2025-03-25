@@ -22,34 +22,46 @@
       <button class="search-button" onclick="search()">搜&nbsp;&nbsp;&nbsp;&nbsp;索</button>
     </div>
     <div class="search-engine">
-      <label><input type="radio" name="search-engine" value="bing" checked> Bing</label>
-      <label><input type="radio" name="search-engine" value="bing" checked> Wechat</label>
-      <label><input type="radio" name="search-engine" value="google"> Google</label>
+      <label><input type="radio" name="search-engine" value="bing" checked> 必应</label>
+      <label><input type="radio" name="search-engine" value="WeChat"> 搜狗|微信</label>
+      <label><input type="radio" name="search-engine" value="DuanJu">短剧</label>
+      <label><input type="radio" name="search-engine" value="Sougou"> 搜狗</label>
     </div>
   </div>
 
   <div class="website-tags">
     <div class="box add-box" id="addBox">
+      <a href="https://www.deepseek.com/" id="addLink">
+        <div class="img fixed-size-icon">
+          <img src="https://icon.bqb.cool/?url=https://www.deepseek.com/" alt="图标" />
+        </div>
+        <p></p>
+        <p>AI</p>
+      </a>
+    </div>
+    <div class="box add-box" id="addBox">
       <a href="https://www.bilibili.com/" id="addLink">
-        <div class="img">
+        <div class="img fixed-size-icon">
           <img src="https://www.pctools.cc/tool/favicon/favicon.php?url=https://www.bilibili.com/" alt="图标" />
         </div>
+        <p></p>
         <p>B站</p>
       </a>
     </div>
     <div class="box add-box" id="addBox">
       <a href="https://www.xiaozhongjishu.com/?from=itab" id="addLink">
-        <div class="img">
+        <div class="img fixed-size-icon">
           <img src="https://www.pctools.cc/tool/favicon/favicon.php?url=https://www.xiaozhongjishu.com/?from=itab"
             alt="图标" />
         </div>
+        <p></p>
         <p>导航</p>
       </a>
     </div>
 
     <div class="box add-box" id="addBox">
       <a href="https://www.duanjuwang.cc/" id="addLink">
-        <div class="img">
+        <div class="img fixed-size-icon">
           <img src="https://www.pctools.cc/tool/favicon/favicon.php?url=https://www.duanjuwang.cc/" alt="图标" />
         </div>
       </a>
@@ -57,23 +69,23 @@
     </div>
     <div class="box add-box" id="addBox">
       <a href="https://duanju001.com/" id="addLink">
-        <div class="img">
+        <div class="img fixed-size-icon">
           <img src="https://www.pctools.cc/tool/favicon/favicon.php?url=https://duanju001.com/" alt="图标" />
         </div>
       </a>
       <p>短剧</p>
     </div>
     <div class="box add-box" id="addBox">
-      <a href="https://www.weiyuntv.com/" id="addLink">
-        <div class="img">
-          <img src="./icons/default.png" alt="图标" />
+      <a href="https://www.naifei2.org/" id="addLink">
+        <div class="img fixed-size-icon">
+          <img src="https://icon.bqb.cool/?url=https://www.naifei2.org/" alt="图标" />
         </div>
       </a>
       <p>影视</p>
     </div>
     <div class="box add-box" id="addBox" onclick="openModal()">
       <a href="#">
-        <div class="img">
+        <div class="img fixed-size-icon">
           <img src="./icons/Add.png" alt="添加">
         </div>
       </a>
@@ -81,6 +93,7 @@
     </div>
   </div>
 
+  <!-- 模态框尚未拟态更改 -->
   <div id="modal" class="modal">
     <div class="modal-content">
       <form id="websiteForm">
@@ -99,7 +112,7 @@
       </form>
     </div>
   </div>
-  <div
+  <div class="footer1"
     style="text-align: center; padding: 10px; font-size: 12px; color: gray; position: fixed; left: 0; bottom: 0; width: 100%;">
     © 2024 导航页 @含光
     <br>

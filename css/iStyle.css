@@ -35,35 +35,38 @@ body {
 }
 
 .search-container {
-  position: relative;
-  margin-bottom: 15px;
-  margin-left: auto;
-  margin-right: auto;
+  display: flex;
+  width: 95%;
+  max-width: 560px;
+  margin: 20px auto;
+  background-color: #e0e5ec;
+  border-radius: 15px;
+  box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6), -9px -9px 16px rgba(255, 255, 255, 0.5);
+  overflow: hidden;
 }
 
 .search-input {
-  width: 90%;
-  padding: 15px;
+  flex: 1;
+  padding: 15px 20px;
   border: none;
-  border-radius: 10px;
   background-color: #e0e5ec;
-  box-shadow: inset 6px 6px 10px rgba(163, 177, 198, 0.6), inset -6px -6px 10px rgba(255, 255, 255, 0.5);
   color: #555;
   font-size: 1rem;
+  box-shadow: inset 6px 6px 10px rgba(163, 177, 198, 0.6), inset -6px -6px 10px rgba(255, 255, 255, 0.5);
+  outline: none;
 }
 
 .search-button {
-  position: absolute;
-  right: 17px;
-  top: 60%;
-  transform: translateY(-50%);
-  background-color: #e0e5ec;
+  padding: 15px 20px;
   border: none;
-  padding: 11px;
-  border-radius: 10px;
+  background-color: #e0e5ec;
   box-shadow: 6px 6px 10px rgba(163, 177, 198, 0.6), -6px -6px 10px rgba(255, 255, 255, 0.5);
   cursor: pointer;
-  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.search-button:hover {
+  box-shadow: inset 6px 6px 10px rgba(163, 177, 198, 0.6), inset -6px -6px 10px rgba(255, 255, 255, 0.5);
 }
 
 .search-engine {
@@ -121,6 +124,12 @@ body {
   text-align: center;
 }
 
+/* 固定icon尺寸的图标 */
+.fixed-size-icon {
+  width: 40px;
+  height: 40px;
+}
+
 .modal {
   display: none;
   position: fixed;
@@ -153,15 +162,30 @@ body {
 }
 
 /* 桌面端样式 */
-@media (min-width: 768px) {
+@media (min-width: 800px) {
   .box.add-box {
-    width: calc((100% - 6 * 20px) / 7);
+    width: calc((100% - 7 * 20px) / 7);
   }
 }
 
 /* 移动端样式 */
-@media (max-width: 767px) {
+@media (max-width: 799px) {
   .box.add-box {
-    width: calc((100% - 3 * 20px) / 4);
+    width: calc((100% - 4 * 20px) / 4);
   }
+}
+
+.footer {
+  text-align: center;
+  padding: 10px;
+  font-size: 12px;
+  color: gray;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(224, 229, 236, 0.8);
+  /* 可以根据整体风格调整背景色 */
+  box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.1);
+  /* 添加阴影增强层次感 */
 }

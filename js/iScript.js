@@ -6,7 +6,7 @@ window.addEventListener('DOMContentLoaded', () => {
   initTouchEvents()
   setInterval(updateDateTime, 1000)
 
-  // 新增回车键支持
+  // 回车键支持
   const searchInput = document.getElementById('search-input')
   searchInput.addEventListener('keydown', function (event) {
     if (event.key === 'Enter') {
@@ -18,13 +18,23 @@ window.addEventListener('DOMContentLoaded', () => {
 
 // 更新页面上的日期和时间显示
 function updateDateTime() {
-  const now = new Date()
-  document.getElementById('time').textContent = now.toLocaleTimeString('zh-CN')
-  document.getElementById('date-lunar').textContent = now.toLocaleDateString('zh-CN', {
+  const now = new Date();
+  const timeOptions = {
+    // 修改此处，去掉秒的显示
+    hour: 'numeric',
+    minute: 'numeric'
+  };
+  const dateOptions = {
     year: 'numeric',
     month: 'long',
     day: 'numeric'
-  })
+  };
+  const formattedTime = now.toLocaleTimeString('zh-CN', timeOptions);
+  const formattedDate = now.toLocaleDateString('zh-CN', dateOptions);
+  // 这里只是简单展示，实际农历计算需要更复杂的逻辑
+  const lunarDate = "农历日期待计算";
+  document.getElementById('time').textContent = formattedTime;
+  document.getElementById('date-lunar').textContent = `${formattedDate}（${lunarDate}）`;
 }
 
 // 根据用户输入的关键词和选择的搜索引擎打开搜索结果页面
@@ -33,21 +43,22 @@ function search() {
   const engine = document.querySelector('input[name="search-engine"]:checked').value
   const urlMap = {
     bing: `https://cn.bing.com/search?q=${encodeURIComponent(keyword)}&form=QBLH&sp=-1`,
-    WeChat: `https://weixin.sogou.com/weixin?p=01030402&query=${encodeURIComponent(keyword)}&type=2&ie=utf8`,
-    google: `https://www.google.com/search?q=${encodeURIComponent(keyword)}`
+    WeChat: `https://weixin.sogou.com/weixin?ie=utf8&s_from=input&_sug_=n&_sug_type_=&type=2&query=${encodeURIComponent(keyword)}`,
+    DuanJu: `https://www.duanjuso.com/search?q=${encodeURIComponent(keyword)}`,
+    Sougou: `https://www.sogou.com/web?query=${encodeURIComponent(keyword)}`
   }
   window.open(urlMap[engine], '_blank')
 }
 
 // 渲染存储的网站标签到页面上
 function renderWebsites() {
-  const container = document.querySelector('.website-tags')
-  container.querySelectorAll('.box:not(.add-box)').forEach(el => el.remove())
+  const container = document.querySelector('.website-tags');
+  container.querySelectorAll('.box:not(.add-box)').forEach(el => el.remove());
 
   websiteData.forEach(item => {
-    const box = document.createElement('div')
-    box.className = 'box'
-    box.dataset.id = item.id
+    const box = document.createElement('div');
+    box.className = 'box add-box';
+    box.dataset.id = item.id;
     box.innerHTML = `
                     <a href="${item.url}" target="_blank">
                         <div class="img">
@@ -55,10 +66,35 @@ function renderWebsites() {
                         </div>
                     </a>
                     <p>${item.name}</p>
-                    <div class="delete-btn" onclick="deleteWebsite('${item.id}')">×</div>
-                `
-    container.insertBefore(box, document.getElementById('addBox'))
-  })
+                `;
+
+    // PC 端鼠标右键弹出删除提示
+    box.addEventListener('contextmenu', function (e) {
+      e.preventDefault();
+      if (confirm(`确定要删除 ${item.name}吗？删除后请手动刷新网页`)) {
+        deleteWebsite(item.id);
+        renderWebsites();
+      }
+    });
+
+    // 移动端长按弹出删除提示
+    let longPressTimer;
+    const longPressDuration = 500; // 长按时间，单位毫秒
+    box.addEventListener('touchstart', function () {
+      longPressTimer = setTimeout(() => {
+        if (confirm(`确定要删除 ${item.name}吗？删除后请手动刷新网页`)) {
+          deleteWebsite(item.id);
+          renderWebsites();
+        }
+      }, longPressDuration);
+    });
+
+    box.addEventListener('touchend', function () {
+      clearTimeout(longPressTimer);
+    });
+
+    container.insertBefore(box, document.getElementById('addBox'));
+  });
 }
 
 // 显示添加网站的模态框
