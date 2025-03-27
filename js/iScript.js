@@ -38,11 +38,12 @@ function updateDateTime() {
 }
 
 // 根据用户输入的关键词和选择的搜索引擎打开搜索结果页面
+// https://cn.bing.com/search?q=${encodeURIComponent(keyword)}&form=QBLH&sp=-1
 function search() {
   const keyword = document.getElementById('search-input').value
   const engine = document.querySelector('input[name="search-engine"]:checked').value
   const urlMap = {
-    bing: `https://cn.bing.com/search?q=${encodeURIComponent(keyword)}&form=QBLH&sp=-1`,
+    bing: `https://www4.bing.com/search?q=${encodeURIComponent(keyword)}`,
     WeChat: `https://weixin.sogou.com/weixin?ie=utf8&s_from=input&_sug_=n&_sug_type_=&type=2&query=${encodeURIComponent(keyword)}`,
     DuanJu: `https://www.duanjuso.com/search?q=${encodeURIComponent(keyword)}`,
     Sougou: `https://www.sogou.com/web?query=${encodeURIComponent(keyword)}`
