@@ -43,9 +43,10 @@ function search() {
   const keyword = document.getElementById('search-input').value
   const engine = document.querySelector('input[name="search-engine"]:checked').value
   const urlMap = {
-    bing: `https://www4.bing.com/search?q=${encodeURIComponent(keyword)}`,
-    WeChat: `https://weixin.sogou.com/weixin?ie=utf8&s_from=input&_sug_=n&_sug_type_=&type=2&query=${encodeURIComponent(keyword)}`,
-    DuanJu: `https://www.duanjuso.com/search?q=${encodeURIComponent(keyword)}`,
+    Bing: `https://www4.bing.com/search?q=${encodeURIComponent(keyword)}`,
+    Wallpaper: `https://haowallpaper.com/?page=1&sortType=3&rows=9&isFavorites=false&search=${encodeURIComponent(keyword)}&isSel=true`,
+    Film: `https://www.naifei2.org/vodsearch.html?wd=${encodeURIComponent(keyword)}`,
+    DuanJu: `https://www.duanjuwang.cc/vodsearch/-------------.html?wd=${encodeURIComponent(keyword)}`,
     Sougou: `https://www.sogou.com/web?query=${encodeURIComponent(keyword)}`
   }
   window.open(urlMap[engine], '_blank')
