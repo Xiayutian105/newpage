@@ -277,7 +277,7 @@ body {
 /* 桌面端样式  每行显示7个*/
 @media (min-width: 800px) {
   .box.add-box {
-    width: calc((100% - 7 * 20px) / 8);
+    width: calc((100% - 8 * 20px) / 8);
   }
 }
 
