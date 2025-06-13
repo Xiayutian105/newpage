@@ -7,7 +7,10 @@
   <title>拟态<墨>导航</title>
   <!-- 添加这一行代码，将favicon.ico替换为你的图标文件名 -->
   <link rel="icon" href="icons/favicon.ico" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css">
   <link rel="stylesheet" href="./css/iStyle.css">
+
   <script src="./js/iScript.js"></script>
 </head>
 
@@ -89,8 +92,33 @@
       <p>添加网址</p>
     </div>
 
+    <div></div>
+
+    <div style="width: 500px;height: 25px;" class="box add-box" id="addBox1" onclick="openModal1()">
+      <!-- <i class="fa fa-external-link"></i> -->
+      <p>更多网址集合</p>
+    </div>
+
+    <script src="./js/data.js"></script>
+    <script src="./js/script.js"></script>
   </div>
 
+  <!-- 弹出框 -->
+  <div id="websiteModal1" class="modal1">
+    <div class="modal-content1">
+      <div class="modal-header1">
+        <h2>常用网址集合</h2>
+        <!-- <button class="close-btn" onclick="closeModal1()">&times;</button> -->
+      </div>
+      <div class="modal-body1">
+        <div class="website-grid1" id="websiteGrid1">
+          <!-- 网址项将通过JS动态生成 -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 添加网站 弹出框 -->
   <div id="modal" class="modal">
     <div class="modal-content">
       <form id="websiteForm">
@@ -109,6 +137,7 @@
       </form>
     </div>
   </div>
+
   <div class="footer1"
     style="text-align: center; padding: 10px; font-size: 12px; color: gray; position: fixed; left: 0; bottom: 0; width: 100%;">
     © 2024 导航页 @含光
@@ -116,6 +145,7 @@
     <a href="https://hanguangjun.netlify.app/"
       style="color: gray; text-decoration: none;">https://hanguangjun.netlify.app/</a>
   </div>
+
 </body>
 
 </html>
