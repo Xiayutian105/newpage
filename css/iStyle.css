@@ -274,10 +274,10 @@ body {
   margin-top: 5px;
 }
 
-/* 桌面端样式 */
+/* 桌面端样式  每行显示7个*/
 @media (min-width: 800px) {
   .box.add-box {
-    width: calc((100% - 7 * 20px) / 7);
+    width: calc((100% - 7 * 20px) / 8);
   }
 }
 

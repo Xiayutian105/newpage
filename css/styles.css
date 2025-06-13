@@ -50,9 +50,9 @@
 
 .website-grid1 {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(calc((100% - 5 * 15px) / 6), 1fr));
-  /* 每行6个 */
-  gap: 15px;
+  grid-template-columns: repeat(auto-fill, minmax(calc((100% - 5 * 15px) / 4), 1fr));
+  /* 每行4个 */
+  gap: 13px;
 }
 
 .website-item1 {
