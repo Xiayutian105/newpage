@@ -46,7 +46,7 @@ function search() {
     Bing: `https://www4.bing.com/search?q=${encodeURIComponent(keyword)}`,
     Wallpaper: `https://haowallpaper.com/?page=1&sortType=3&rows=9&isFavorites=false&search=${encodeURIComponent(keyword)}&isSel=true`,
     Film: `https://wld56.net/wlvodsearch/-------------.html?wd=${encodeURIComponent(keyword)}`,
-    DuanJu: `https://www.duanjuwang.cc/vodsearch/-------------.html?wd=${encodeURIComponent(keyword)}`,
+    DuanJu: `https://lkvod.me/nk/-------------.html?wd=${encodeURIComponent(keyword)}`,
     Sougou: `https://www.sogou.com/web?query=${encodeURIComponent(keyword)}`
   }
   window.open(urlMap[engine], '_blank')
@@ -168,3 +168,5 @@ window.onclick = function (e) {
     closeModal()
   }
 }
+
+
