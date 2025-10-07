@@ -1,0 +1,184 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8fafc;
+    font-size: 14px;
+}
+.glass-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.btn-primary {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: white;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 1rem;
+}
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -3px rgba(37, 99, 235, 0.4);
+}
+.dropzone {
+    border: 2px dashed #93c5fd;
+    transition: all 0.3s ease;
+    background-color: rgba(191, 219, 254, 0.05);
+}
+.dropzone.active {
+    border-color: #3b82f6;
+    background-color: rgba(59, 130, 246, 0.05);
+}
+.info-label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1e40af;
+}
+.info-value {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #1e3a8a;
+}
+.tag-style {
+    border: 2px solid #3b82f6;
+    border-radius: 10px;
+    padding: 10px 14px;
+    box-shadow: 0 3px 10px rgba(59, 130, 246, 0.15);
+    background: white;
+}
+.amount-display {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #FF6B00;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+.copy-btn {
+    background: rgba(30, 64, 175, 0.1);
+    color: #1e40af;
+    border: 1px solid #1e40af;
+    transition: all 0.2s ease;
+    padding: 4px 8px;
+    font-size: 0.8rem;
+}
+.copy-btn:hover {
+    background: rgba(30, 64, 175, 0.2);
+}
+.copy-success {
+    position: absolute;
+    right: 0;
+    top: -25px;
+    background: #10b981;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.copy-success.show {
+    opacity: 1;
+}
+.file-info {
+    font-size: 0.8rem;
+    color: #6b7280;
+    margin-top: 6px;
+}
+.file-count {
+    color: #3b82f6;
+    font-weight: 600;
+}
+.file-name {
+    display: inline-block;
+    max-width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: bottom;
+}
+.bg-pattern-1 {
+    background-color: #ffffff;
+}
+.bg-pattern-2 {
+    background: linear-gradient(135deg, #4a6cf7 0%, #9b51e0 100%);
+}
+.bg-pattern-3 {
+    background-color: #ffffff;
+    background-image: radial-gradient(#4a6cf7 1px, transparent 1px),
+                      radial-gradient(#ff7b25 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+}
+
+.bg-pattern-4 {
+    background-color: #ffffff;
+    background-image: 
+        linear-gradient(to right, #e2e8f0 1px, transparent 1px),
+        linear-gradient(to bottom, #e2e8f0 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+.bg-selected {
+    border: 2px solid #3b82f6 !important;
+    position: relative;
+    transition: all 0.3s ease;
+}
+.bg-selected::after {
+    content: '\f00c';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 20px;
+    height: 20px;
+    background: #3b82f6;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    transition: all 0.3s ease;
+}
+.download-header {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: white;
+    padding: 12px 0;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.save-hint {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    color: #1e40af;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+}
+@media (max-width: 1024px) {
+    .desktop-layout {
+        flex-direction: column;
+    }
+    .desktop-layout > div {
+        width: 100%;
+    }
+}
+@media (max-width: 640px) {
+    body {
+        font-size: 13px;
+    }
+    .amount-display {
+        font-size: 1.5rem;
+    }
+    .btn-primary {
+        padding: 12px;
+        min-height: 44px;
+    }
+    input, textarea {
+        min-height: 44px;
+    }
+}
