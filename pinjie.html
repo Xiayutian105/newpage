@@ -930,22 +930,50 @@
                     
                     // 增强移动设备支持
                     if (navigator.userAgent.match(/(iPad|iPhone|iPod|Android)/i)) {
-                        // 对于iOS设备，添加图片到DOM并触发点击
+                        // 对于移动设备，创建一个更可靠的下载方案
+                        
+                        // 1. 先尝试标准方法
                         link.style.display = 'none';
                         document.body.appendChild(link);
                         
-                        // 使用延迟确保DOM元素已添加
+                        // 2. 增加延迟时间以确保DOM元素已完全添加
                         setTimeout(() => {
-                            link.click();
-                            document.body.removeChild(link);
-                        }, 100);
+                            try {
+                                link.click();
+                                
+                                // 3. 检查是否是iOS设备，提供更明确的引导
+                                if (navigator.userAgent.match(/(iPad|iPhone|iPod)/i)) {
+                                    setTimeout(() => {
+                                        alert('如果图片没有自动保存到相册，请尝试：\n1. 长按图片\n2. 选择"保存图片"选项');
+                                    }, 500);
+                                }
+                            } catch (err) {
+                                // 如果直接点击失败，尝试创建新的图片预览窗口
+                                try {
+                                    const imgWindow = window.open('', '_blank');
+                                    imgWindow.document.write('<img src="' + link.href + '" style="max-width:100%;max-height:100%;">');
+                                    imgWindow.document.title = '账单拼接结果';
+                                    imgWindow.focus();
+                                    
+                                    setTimeout(() => {
+                                        imgWindow.alert('请长按图片并选择"保存图片"选项');
+                                    }, 500);
+                                } catch (windowErr) {
+                                    // 终极方案：显示详细的保存指南
+                                    alert('请按照以下步骤保存图片：\n1. 长按下方的拼接图片\n2. 在弹出的菜单中选择"保存图片"选项\n3. 图片将保存到您的相册');
+                                }
+                            } finally {
+                                // 清理DOM元素
+                                document.body.removeChild(link);
+                            }
+                        }, 300); // 增加延迟时间到300ms
                     } else {
                         link.click();
                     }
                 } catch (error) {
                     console.error('下载图片失败:', error);
-                    // 添加提示，告诉用户可以长按图片保存
-                    alert('下载功能暂时不可用，请尝试长按图片并选择保存选项。');
+                    // 增强错误提示，提供详细的保存指南
+                    alert('下载功能暂时不可用，请尝试：\n- 右键点击图片选择"另存为"\n- 或者长按图片并选择保存选项');
                 }
             });
         });
