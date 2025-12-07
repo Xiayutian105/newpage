@@ -197,11 +197,12 @@
     padding: 3px 8px;
   }
   
-  /* 调整模态框样式 */
+  /* 调整模态框样式 - 手机模式下更窄，能看到边界 */
   .modal-content1 {
-    margin: 10% auto;
+    margin: 15% auto;
     padding: 20px;
-    width: 95%;
+    width: 85%; /* 减小宽度，让两侧能看到边界 */
+    max-width: 400px; /* 设置最大宽度 */
   }
   
   /* 调整模态框标题大小 */
