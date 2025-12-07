@@ -1,4 +1,13 @@
-let websiteData = JSON.parse(localStorage.getItem('websites')) || []
+// 添加错误处理，防止localStorage数据格式错误导致整个脚本失败
+let websiteData = [];
+try {
+  websiteData = JSON.parse(localStorage.getItem('websites')) || [];
+} catch (error) {
+  console.error('解析localStorage数据失败:', error);
+  // 如果解析失败，重置为空白数组
+  websiteData = [];
+  localStorage.setItem('websites', JSON.stringify(websiteData));
+}
 
 window.addEventListener('DOMContentLoaded', () => {
   updateDateTime()
@@ -18,6 +27,16 @@ window.addEventListener('DOMContentLoaded', () => {
 
 // 更新页面上的日期和时间显示
 function updateDateTime() {
+  console.log('updateDateTime函数被调用');
+  
+  // 确保DOM元素存在
+  const timeElement = document.getElementById('time');
+  
+  if (!timeElement) {
+    console.error('时间元素未找到');
+    return;
+  }
+  
   const now = new Date();
   const timeOptions = {
     // 修改此处，去掉秒的显示
@@ -31,11 +50,87 @@ function updateDateTime() {
   };
   const formattedTime = now.toLocaleTimeString('zh-CN', timeOptions);
   const formattedDate = now.toLocaleDateString('zh-CN', dateOptions);
-  // 这里只是简单展示，实际农历计算需要更复杂的逻辑
-  const lunarDate = "农历日期待计算";
-  document.getElementById('time').textContent = formattedTime;
-  document.getElementById('date-lunar').textContent = `${formattedDate}（${lunarDate}）`;
+  
+  // 获取新的DOM元素
+  const solarDateElement = document.getElementById('solar-date');
+  const lunarDateElement = document.getElementById('lunar-date');
+  const solarTermElement = document.getElementById('solar-term');
+  
+  // 使用农历日历模块计算农历日期和节气
+  let lunarDateText = "";
+  let solarTermText = "";
+  
+  if (typeof window.LunarCalendar !== 'undefined') {
+    try {
+      const lunarDate = window.LunarCalendar.getTodayLunar();
+      // 分离农历日期和节气信息
+      const formattedLunar = window.LunarCalendar.formatLunarDate(lunarDate);
+      
+      // 提取节气信息
+      const solarTermMatch = formattedLunar.match(/【([^】]+)】/);
+      if (solarTermMatch) {
+        solarTermText = solarTermMatch[0];
+        // 移除节气信息，只保留农历日期
+        lunarDateText = formattedLunar.replace(/【[^】]+】/, '').trim();
+      } else {
+        // 检查是否有距离下一个节气的信息
+        const nextTermMatch = formattedLunar.match(/距离([^还有]+)还有(\d+)天/);
+        if (nextTermMatch) {
+          solarTermText = formattedLunar;
+          lunarDateText = formattedLunar.replace(/距离[^】]+还有\d+天/, '').trim();
+        } else {
+          // 检查是否有明天的节气信息
+          const tomorrowTermMatch = formattedLunar.match(/明天([^】]+)/);
+          if (tomorrowTermMatch) {
+            solarTermText = formattedLunar;
+            lunarDateText = formattedLunar.replace(/明天[^】]+/, '').trim();
+          } else {
+            lunarDateText = formattedLunar;
+          }
+        }
+      }
+      
+      // 如果没有提取到节气信息，尝试直接获取
+      if (!solarTermText) {
+        const solarTerm = window.LunarCalendar.getSolarTerm(now.getFullYear(), now.getMonth() + 1, now.getDate());
+        if (solarTerm) {
+          solarTermText = `【${solarTerm}】`;
+        } else {
+          const nextTerm = window.LunarCalendar.getNextSolarTerm(now);
+          if (nextTerm) {
+            if (nextTerm.daysDiff === 1) {
+              solarTermText = `明天${nextTerm.name}`;
+            } else {
+              solarTermText = `距离${nextTerm.name}还有${nextTerm.daysDiff}天`;
+            }
+          }
+        }
+      }
+    } catch (error) {
+      console.error('计算农历日期时出错:', error);
+      lunarDateText = "农历日期计算中";
+      solarTermText = "节气计算中";
+    }
+  } else {
+    lunarDateText = "农历日期待计算";
+    solarTermText = "节气待计算";
+  }
+  
+  console.log('准备更新时间和日期:', formattedTime, formattedDate, lunarDateText, solarTermText);
+  
+  // 更新各个元素的内容
+  timeElement.textContent = formattedTime;
+  solarDateElement.textContent = formattedDate;
+  lunarDateElement.textContent = lunarDateText;
+  solarTermElement.textContent = solarTermText;
+  
+  // 添加可见性检查
+  console.log('时间元素可见性:', window.getComputedStyle(timeElement).display);
+  console.log('日期元素可见性:', window.getComputedStyle(dateLunarElement).display);
 }
+
+// 移除了在DOM加载前执行的setTimeout调用，改为仅在DOMContentLoaded后执行
+
 
 // 根据用户输入的关键词和选择的搜索引擎打开搜索结果页面
 // https://cn.bing.com/search?q=${encodeURIComponent(keyword)}&form=QBLH&sp=-1

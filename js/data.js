@@ -1,13 +1,11 @@
 // 网址数据
 const websites = [
-  { title: "果核剥壳", url: "https://www.ghxi.com/", icon: "fa fa-fire" },
-  { title: "打字练习", url: "https://qwerty.kaiyi.cool/", icon: "fa fa-fire" },
-  { title: "抠抠图", url: "https://www.koukoutu.com/?ref=aishenqi.net/", icon: "fa fa-fire" },
-  { title: "GitHub", url: "https://github.com", icon: "fa fa-github" },
-  { title: "视频解析", url: "https://www.v2ob.com/", icon: "fa fa-stack-overflow" },
-  { title: "微信解析", url: "https://greenvideo.cc/gzh/", icon: "fa fa-code" },
-  { title: "软件下载", url: "http://www.zhanshaoyi.com/", icon: "fa fa-fire" },
-  { title: "无损放大", url: "https://bigjpg.com/", icon: "fa fa-fire" },
-  { title: "软件分享", url: "https://mp.weixin.qq.com/s?__biz=MzA4MjU4MTg2Ng==&mid=100000030&idx=1&sn=d72a50fa20c11ad5a4f3d5303e15235a&chksm=1e73a9db04282c6088f5169ad61458884bca8b7691a4f4cf9020f627a8a41a967fe2cc9c2149&mpshare=1&scene=23&srcid=1219IOzQ5tpG9FHa0duY1wtN&sharer_shareinfo=5e9c3cd238a6c846ee9e92b3df01da6d&sharer_shareinfo_first=5e9c3cd238a6c846ee9e92b3df01da6d#rd", icon: "fa fa-comment" },
-  { title: "橙子解析", url: "https://odown.cc/support/", icon: "fa fa-fire" },
-];
+  { title: "云粘贴", url: "https://webnote.cc/", icon: "fa fa-clipboard" }, // 剪贴板专用图标，直接关联剪贴板功能
+  { title: "抠抠图", url: "https://www.koukoutu.com/?ref=aishenqi.net/", icon: "fa fa-image" }, // 图片图标，代表图片编辑功能
+  { title: "GitHub", url: "https://github.com", icon: "fab fa-github" }, // GitHub品牌图标，使用Font Awesome 6语法
+  { title: "视频解析", url: "https://www.v2ob.com/", icon: "fa fa-video" }, // 视频图标，代表视频解析功能
+  { title: "微信解析", url: "https://greenvideo.cc/gzh/", icon: "fab fa-weixin" }, // 微信品牌图标，使用Font Awesome 6语法
+  { title: "无损放大", url: "https://bigjpg.com/", icon: "fa fa-search-plus" }, // 放大镜加号图标，代表放大功能
+  { title: "果核剥壳", url: "https://www.ghxi.com/", icon: "fa fa-wrench" }, // 工具图标，代表科技工具网站
+  { title: "软件下载", url: "http://www.zhanshaoyi.com/", icon: "fa fa-download" } // 下载图标，代表下载功能
+]

@@ -2,7 +2,7 @@
 function openModal1() {
   const modal = document.getElementById('websiteModal1');
   modal.style.display = 'block';
-  renderWebsites();
+  renderWebsiteModal();
 }
 
 // 关闭模态框函数
@@ -19,8 +19,8 @@ function handleModalClick(event) {
   }
 }
 
-// 渲染网址项
-function renderWebsites() {
+// 渲染网址项到模态框
+function renderWebsiteModal() {
   const websiteGrid = document.getElementById('websiteGrid1');
   websiteGrid.innerHTML = '';
 
@@ -40,8 +40,8 @@ function renderWebsites() {
 
 // 页面加载完成后初始化
 window.onload = function () {
-  // 初始渲染
-  renderWebsites();
+  // 初始渲染模态框内容
+  renderWebsiteModal();
 
   // 添加模态框点击事件
   const modal = document.getElementById('websiteModal1');
