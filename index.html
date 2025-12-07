@@ -7,18 +7,22 @@
   <title>拟态<墨>导航</title>
   <!-- 添加这一行代码，将favicon.ico替换为你的图标文件名 -->
   <link rel="icon" href="icons/favicon.ico" type="image/x-icon">
-  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="./css/styles.css">
   <link rel="stylesheet" href="./css/iStyle.css">
-
-  <script src="./js/iScript.js"></script>
 </head>
 
 <body>
   <div class="container">
-    <div class="datetime">
-      <div class="time" id="time"></div>
-      <div class="date-lunar" id="date-lunar"></div>
+   <div class="datetime">
+        <div class="time" id="time"></div>
+        <div class="date-container">
+            <div class="date-info">
+                <span class="solar-date" id="solar-date"></span>
+                <span class="lunar-date" id="lunar-date"></span>
+                <span class="solar-term" id="solar-term"></span>
+            </div>
+        </div>
     </div>
     <div class="search-container">
       <input type="text" class="search-input" id="search-input" placeholder="输入关键词">
@@ -107,9 +111,47 @@
       <p>更多网址集合</p>
     </div>
 
-    <script src="./js/data.js"></script>
-    <script src="./js/script.js"></script>
-  </div>
+    </div>
+
+  <script src="./js/data.js"></script>
+  <script src="./js/script.js"></script>
+  <script src="./js/lunarCalendar.js"></script>
+  <script src="./js/iScript.js"></script>
+  
+  <!-- 添加直接调用，确保时间日期能显示 -->
+  <script>
+    // 确保DOM加载完成后调用
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('DOM加载完成，尝试更新时间日期');
+      // 检查updateDateTime函数是否存在
+      if (typeof updateDateTime === 'function') {
+        updateDateTime();
+        // 设置每秒更新一次
+        setInterval(updateDateTime, 1000);
+      } else {
+        console.error('updateDateTime函数不存在，检查iScript.js是否正确加载');
+        // 如果函数不存在，直接在页面上实现时间日期显示
+        function showDateTime() {
+          const now = new Date();
+          const timeOptions = { hour: 'numeric', minute: 'numeric' };
+          const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+          const formattedTime = now.toLocaleTimeString('zh-CN', timeOptions);
+          const formattedDate = now.toLocaleDateString('zh-CN', dateOptions);
+          
+          const timeElement = document.getElementById('time');
+          const dateElement = document.getElementById('date-lunar');
+          
+          if (timeElement && dateElement) {
+            timeElement.textContent = formattedTime;
+            dateElement.textContent = `${formattedDate}（农历日期）`;
+          }
+        }
+        
+        showDateTime();
+        setInterval(showDateTime, 1000);
+      }
+    });
+  </script>
 
   <!-- 弹出框 -->
   <div id="websiteModal1" class="modal1">
@@ -148,7 +190,7 @@
 
   <div class="footer1"
     style="text-align: center; padding: 10px; font-size: 12px; color: gray; position: fixed; left: 0; bottom: 0; width: 100%;">
-    © 2024 导航页 @含光
+    © 2025 导航页 @含光
     <br>
     <a href="https://hanguangjun.netlify.app/"
       style="color: gray; text-decoration: none;">https://hanguangjun.netlify.app/</a>
