@@ -94,7 +94,7 @@ function updateDateTime() {
       if (!solarTermText) {
         const solarTerm = window.LunarCalendar.getSolarTerm(now.getFullYear(), now.getMonth() + 1, now.getDate());
         if (solarTerm) {
-          solarTermText = `【${solarTerm}】`;
+          solarTermText = `[${solarTerm} 节气]`;
         } else {
           const nextTerm = window.LunarCalendar.getNextSolarTerm(now);
           if (nextTerm) {
