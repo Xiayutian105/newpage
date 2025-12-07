@@ -4,80 +4,107 @@
 .modal1 {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 1000;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal-content1 {
-  background-color: #fefefe;
-  margin: 10% auto;
-  /* 调整上下边距 */
-  padding: 20px;
-  border: 1px solid #888;
+  background-color: var(--bg-color);
+  margin: 5% auto;
+  padding: 30px;
+  border: 1px solid var(--shadow-dark);
   width: 90%;
-  /* 增加模态框宽度 */
   max-width: 1200px;
-  /* 最大宽度 */
-  border-radius: 8px;
+  border-radius: 20px;
+  box-shadow: 9px 9px 16px rgba(163, 190, 215, 0.6), -9px -9px 16px rgba(255, 255, 255, 0.8);
 }
 
 .modal-header1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 10px;
-  margin-bottom: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--shadow-dark);
+}
+
+.modal-header1 h2 {
+  margin: 0;
+  color: var(--text-color);
+  font-size: 1.5rem;
 }
 
 .close-btn1 {
-  color: #aaa;
+  color: var(--text-color);
   font-size: 28px;
   font-weight: bold;
   cursor: pointer;
+  background-color: var(--bg-color);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 4px 4px 8px rgba(163, 190, 215, 0.6), -4px -4px 8px rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
 }
 
 .close-btn1:hover,
 .close-btn1:focus {
-  color: black;
-  text-decoration: none;
+  box-shadow: inset 4px 4px 8px rgba(163, 190, 215, 0.6), inset -4px -4px 8px rgba(255, 255, 255, 0.8);
+  color: var(--primary-color);
 }
 
 .website-grid1 {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(calc((100% - 5 * 15px) / 4), 1fr));
-  /* 每行4个 */
-  gap: 13px;
+  grid-template-columns: repeat(auto-fill, minmax(calc((100% - 7 * 20px) / 6), 1fr));
+  /* 每行6个 */
+  gap: 20px;
 }
 
 .website-item1 {
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  padding: 15px;
-  transition: box-shadow 0.3s;
+  background-color: var(--bg-color);
+  border: 1px solid var(--shadow-dark);
+  border-radius: 12px;
+  padding: 18px;
+  transition: all 0.3s ease;
   text-align: center;
-  /* 居中显示内容 */
+  box-shadow: 6px 6px 12px rgba(163, 190, 215, 0.4), -6px -6px 12px rgba(255, 255, 255, 0.8);
 }
 
 .website-item1:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 9px 9px 16px rgba(163, 190, 215, 0.6), -9px -9px 16px rgba(255, 255, 255, 0.8), inset 2px 2px 5px rgba(163, 190, 215, 0.3), inset -2px -2px 5px rgba(255, 255, 255, 0.5);
+  transform: translateY(-3px);
+}
+
+.website-item1 i {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+  display: block;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .website-url1 {
-  color: #007bff;
+  color: var(--text-color);
   text-decoration: none;
   display: block;
-  margin-top: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
   word-break: break-all;
+  transition: color 0.3s ease;
 }
 
 .website-url1:hover {
-  text-decoration: underline;
+  color: var(--primary-color);
+  text-decoration: none;
 }
 
 /* 移除复制按钮样式 */
@@ -97,3 +124,124 @@
   display: none;
   z-index: 2;
 } */
+
+/* 日期时间样式 */
+.datetime {
+  color: var(--text-color);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.time {
+  font-size: 36px;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 5px;
+  font-family: 'Arial', sans-serif;
+}
+
+.date-container {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.date-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.solar-date {
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    border: 1px solid var(--shadow-dark);
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(163, 190, 215, 0.3), -2px -2px 5px rgba(255, 255, 255, 0.5);
+}
+
+.lunar-date {
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    border: 1px solid var(--shadow-dark);
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(163, 190, 215, 0.3), -2px -2px 5px rgba(255, 255, 255, 0.5);
+}
+
+.solar-term {
+    color: var(--primary-color);
+    background-color: var(--bg-color);
+    border: 1px solid var(--shadow-dark);
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(163, 190, 215, 0.3), -2px -2px 5px rgba(255, 255, 255, 0.5);
+}
+
+/* 响应式设计 - 手机模式适配 */
+@media (max-width: 768px) {
+  /* 调整时间字体大小 */
+  .time {
+    font-size: 24px;
+  }
+  
+  /* 调整日期容器字体大小 */
+  .date-container {
+    font-size: 12px;
+  }
+  
+  /* 调整日期元素内边距 */
+  .solar-date, .lunar-date, .solar-term {
+    padding: 3px 8px;
+  }
+  
+  /* 调整模态框样式 */
+  .modal-content1 {
+    margin: 10% auto;
+    padding: 20px;
+    width: 95%;
+  }
+  
+  /* 调整模态框标题大小 */
+  .modal-header1 h2 {
+    font-size: 1.2rem;
+  }
+  
+  /* 调整网址网格布局 - 手机上每行2个 */
+  .website-grid1 {
+    grid-template-columns: repeat(auto-fill, minmax(calc((100% - 20px) / 2), 1fr));
+    gap: 15px;
+  }
+  
+  /* 调整网址项图标大小 */
+  .website-item1 i {
+    font-size: 1.5rem;
+  }
+  
+  /* 调整网址项文字大小 */
+  .website-url1 {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* 更小屏幕的额外调整 */
+  .time {
+    font-size: 20px;
+  }
+  
+  .date-container {
+    font-size: 11px;
+  }
+  
+  .website-grid1 {
+    grid-template-columns: repeat(auto-fill, minmax(calc((100% - 15px) / 2), 1fr));
+    gap: 10px;
+  }
+  
+  .website-item1 {
+    padding: 12px;
+  }
+}
