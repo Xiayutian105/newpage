@@ -67,17 +67,17 @@ function updateDateTime() {
       const formattedLunar = window.LunarCalendar.formatLunarDate(lunarDate);
       
       // 提取节气信息
-      const solarTermMatch = formattedLunar.match(/【([^】]+)】/);
+      const solarTermMatch = formattedLunar.match(/\[([^\]]+)\]/);
       if (solarTermMatch) {
         solarTermText = solarTermMatch[0];
         // 移除节气信息，只保留农历日期
-        lunarDateText = formattedLunar.replace(/【[^】]+】/, '').trim();
+        lunarDateText = formattedLunar.replace(/\[[^\]]+\]/, '').trim();
       } else {
         // 检查是否有距离下一个节气的信息
-        const nextTermMatch = formattedLunar.match(/距离([^还有]+)还有(\d+)天/);
+        const nextTermMatch = formattedLunar.match(/距([^还有]+)还有(\d+)天|距([^\d]+)(\d+)天/);
         if (nextTermMatch) {
           solarTermText = formattedLunar;
-          lunarDateText = formattedLunar.replace(/距离[^】]+还有\d+天/, '').trim();
+          lunarDateText = formattedLunar.replace(/距[^】]+还有\d+天|距[^\d]+\d+天/, '').trim();
         } else {
           // 检查是否有明天的节气信息
           const tomorrowTermMatch = formattedLunar.match(/明天([^】]+)/);
@@ -96,12 +96,12 @@ function updateDateTime() {
         if (solarTerm) {
           solarTermText = `[${solarTerm} 节气]`;
         } else {
-          const nextTerm = window.LunarCalendar.getNextSolarTerm(now);
+          const nextTerm = window.LunarCalendar.getNextSolarTerm(now.getFullYear(), now.getMonth() + 1, now.getDate());
           if (nextTerm) {
-            if (nextTerm.daysDiff === 1) {
+            if (nextTerm.daysUntil === 1) {
               solarTermText = `明天${nextTerm.name}`;
             } else {
-              solarTermText = `距离${nextTerm.name}还有${nextTerm.daysDiff}天`;
+              solarTermText = `距${nextTerm.name}${nextTerm.daysUntil}天`;
             }
           }
         }
