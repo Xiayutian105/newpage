@@ -150,15 +150,24 @@ function search() {
 // 渲染存储的网站标签到页面上
 function renderWebsites() {
   const container = document.querySelector('.website-tags');
-  container.querySelectorAll('.box:not(.add-box)').forEach(el => el.remove());
+  
+  // 保存添加按钮和更多网址按钮的引用
+  const addBox = document.querySelector('.website-tags .box[id="addBox"][onclick="openModal()"]');
+  const addBox1 = document.getElementById('addBox1');
+  
+  // 清除所有自定义添加的网站标签（保留默认标签和添加按钮）
+  container.querySelectorAll('.box.add-box[data-id]').forEach(el => el.remove());
 
-  websiteData.forEach(item => {
+  // 反向渲染网站列表，使新添加的网站显示在前面
+  const reversedData = [...websiteData].reverse();
+
+  reversedData.forEach(item => {
     const box = document.createElement('div');
-    box.className = 'box add-box';
+    box.className = 'box add-box'; // 使用与默认网站标签相同的类名
     box.dataset.id = item.id;
     box.innerHTML = `
                     <a href="${item.url}" target="_blank">
-                        <div class="img">
+                        <div class="img fixed-size-icon">
                             <img src="https://www.pctools.cc/tool/favicon/favicon.php?url=${encodeURIComponent(item.url)}" alt="图标">
                         </div>
                     </a>
@@ -168,20 +177,19 @@ function renderWebsites() {
     // PC 端鼠标右键弹出删除提示
     box.addEventListener('contextmenu', function (e) {
       e.preventDefault();
-      if (confirm(`确定要删除 ${item.name}吗？删除后请手动刷新网页`)) {
+      if (confirm(`确定要删除 ${item.name}吗？`)) {
         deleteWebsite(item.id);
-        renderWebsites();
       }
     });
 
     // 移动端长按弹出删除提示
     let longPressTimer;
-    const longPressDuration = 500; // 长按时间，单位毫秒
-    box.addEventListener('touchstart', function () {
+    const longPressDuration = 800; // 长按时间，单位毫秒
+    box.addEventListener('touchstart', function (e) {
+      e.preventDefault();
       longPressTimer = setTimeout(() => {
-        if (confirm(`确定要删除 ${item.name}吗？删除后请手动刷新网页`)) {
+        if (confirm(`确定要删除 ${item.name}吗？`)) {
           deleteWebsite(item.id);
-          renderWebsites();
         }
       }, longPressDuration);
     });
@@ -190,7 +198,8 @@ function renderWebsites() {
       clearTimeout(longPressTimer);
     });
 
-    container.insertBefore(box, document.getElementById('addBox'));
+    // 插入到容器的第一个位置
+    container.insertBefore(box, container.firstChild);
   });
 }
 
