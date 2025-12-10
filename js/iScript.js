@@ -126,7 +126,7 @@ function updateDateTime() {
   
   // 添加可见性检查
   console.log('时间元素可见性:', window.getComputedStyle(timeElement).display);
-  console.log('日期元素可见性:', window.getComputedStyle(dateLunarElement).display);
+  console.log('农历日期元素可见性:', window.getComputedStyle(lunarDateElement).display);
 }
 
 // 移除了在DOM加载前执行的setTimeout调用，改为仅在DOMContentLoaded后执行
