@@ -1,6 +1,6 @@
 // 网址数据
 const websites = [
-  { title: "云粘贴", url: "https://webnote.cc/", icon: "fa fa-clipboard" }, // 剪贴板专用图标，直接关联剪贴板功能
+  { title: "短剧网", url: "https://suju.app/", icon: "fas fa-popcorn" }, // 剪贴板专用图标，直接关联剪贴板功能
   { title: "抠抠图", url: "https://www.koukoutu.com/?ref=aishenqi.net/", icon: "fa fa-image" }, // 图片图标，代表图片编辑功能
   { title: "GitHub", url: "https://github.com", icon: "fab fa-github" }, // GitHub品牌图标，使用Font Awesome 6语法
   { title: "视频解析", url: "https://www.v2ob.com/", icon: "fa fa-video" }, // 视频图标，代表视频解析功能
