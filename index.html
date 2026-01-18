@@ -14,15 +14,15 @@
 
 <body>
   <div class="container">
-   <div class="datetime">
-        <div class="time" id="time"></div>
-        <div class="date-container">
-            <div class="date-info">
-                <span class="solar-date" id="solar-date"></span>
-                <span class="solar-term" id="solar-term"></span>
-                <span class="lunar-date" id="lunar-date"></span>
-            </div>
+    <div class="datetime">
+      <div class="time" id="time"></div>
+      <div class="date-container">
+        <div class="date-info">
+          <span class="solar-date" id="solar-date"></span>
+          <span class="solar-term" id="solar-term"></span>
+          <span class="lunar-date" id="lunar-date"></span>
         </div>
+      </div>
     </div>
     <div class="search-container">
       <input type="text" class="search-input" id="search-input" placeholder="输入关键词">
@@ -88,7 +88,7 @@
       <p>翻译</p>
     </div>
     <div class="box add-box" id="addBox">
-      <a href="https://vidhub.icu/" id="addLink">
+      <a href="http://vidhub.icu/" id="addLink">
         <div class="img fixed-size-icon">
           <img src="https://icon.bqb.cool/?url=https://vidhub.icu/" alt="图标" />
         </div>
@@ -111,17 +111,17 @@
       <p>更多网址集合</p>
     </div>
 
-    </div>
+  </div>
 
   <script src="./js/data.js"></script>
   <script src="./js/script.js"></script>
   <script src="./js/lunarCalendar.js"></script>
   <script src="./js/iScript.js"></script>
-  
+
   <!-- 添加直接调用，确保时间日期能显示 -->
   <script>
     // 确保DOM加载完成后调用
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       console.log('DOM加载完成，尝试更新时间日期');
       // 检查updateDateTime函数是否存在
       if (typeof updateDateTime === 'function') {
@@ -137,16 +137,16 @@
           const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
           const formattedTime = now.toLocaleTimeString('zh-CN', timeOptions);
           const formattedDate = now.toLocaleDateString('zh-CN', dateOptions);
-          
+
           const timeElement = document.getElementById('time');
           const dateElement = document.getElementById('date-lunar');
-          
+
           if (timeElement && dateElement) {
             timeElement.textContent = formattedTime;
             dateElement.textContent = `${formattedDate}（农历日期）`;
           }
         }
-        
+
         showDateTime();
         setInterval(showDateTime, 1000);
       }
