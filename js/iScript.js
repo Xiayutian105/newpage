@@ -28,15 +28,15 @@ window.addEventListener('DOMContentLoaded', () => {
 // 更新页面上的日期和时间显示
 function updateDateTime() {
   console.log('updateDateTime函数被调用');
-  
+
   // 确保DOM元素存在
   const timeElement = document.getElementById('time');
-  
+
   if (!timeElement) {
     console.error('时间元素未找到');
     return;
   }
-  
+
   const now = new Date();
   const timeOptions = {
     // 修改此处，去掉秒的显示
@@ -50,22 +50,22 @@ function updateDateTime() {
   };
   const formattedTime = now.toLocaleTimeString('zh-CN', timeOptions);
   const formattedDate = now.toLocaleDateString('zh-CN', dateOptions);
-  
+
   // 获取新的DOM元素
   const solarDateElement = document.getElementById('solar-date');
   const lunarDateElement = document.getElementById('lunar-date');
   const solarTermElement = document.getElementById('solar-term');
-  
+
   // 使用农历日历模块计算农历日期和节气
   let lunarDateText = "";
   let solarTermText = "";
-  
+
   if (typeof window.LunarCalendar !== 'undefined') {
     try {
       const lunarDate = window.LunarCalendar.getTodayLunar();
       // 分离农历日期和节气信息
       const formattedLunar = window.LunarCalendar.formatLunarDate(lunarDate);
-      
+
       // 提取节气信息
       const solarTermMatch = formattedLunar.match(/\[([^\]]+)\]/);
       if (solarTermMatch) {
@@ -89,7 +89,7 @@ function updateDateTime() {
           }
         }
       }
-      
+
       // 如果没有提取到节气信息，尝试直接获取
       if (!solarTermText) {
         const solarTerm = window.LunarCalendar.getSolarTerm(now.getFullYear(), now.getMonth() + 1, now.getDate());
@@ -115,15 +115,15 @@ function updateDateTime() {
     lunarDateText = "农历日期待计算";
     solarTermText = "节气待计算";
   }
-  
+
   console.log('准备更新时间和日期:', formattedTime, formattedDate, lunarDateText, solarTermText);
-  
+
   // 更新各个元素的内容
   timeElement.textContent = formattedTime;
   solarDateElement.textContent = formattedDate;
   lunarDateElement.textContent = lunarDateText;
   solarTermElement.textContent = solarTermText;
-  
+
   // 添加可见性检查
   console.log('时间元素可见性:', window.getComputedStyle(timeElement).display);
   console.log('农历日期元素可见性:', window.getComputedStyle(lunarDateElement).display);
@@ -132,7 +132,7 @@ function updateDateTime() {
 // 移除了在DOM加载前执行的setTimeout调用，改为仅在DOMContentLoaded后执行
 
 
-// 根据用户输入的关键词和选择的搜索引擎打开搜索结果页面
+// 😄根据用户输入的关键词和选择的搜索引擎打开搜索结果页面
 // https://cn.bing.com/search?q=${encodeURIComponent(keyword)}&form=QBLH&sp=-1
 function search() {
   const keyword = document.getElementById('search-input').value
@@ -150,11 +150,11 @@ function search() {
 // 渲染存储的网站标签到页面上
 function renderWebsites() {
   const container = document.querySelector('.website-tags');
-  
+
   // 保存添加按钮和更多网址按钮的引用
   const addBox = document.querySelector('.website-tags .box[id="addBox"][onclick="openModal()"]');
   const addBox1 = document.getElementById('addBox1');
-  
+
   // 清除所有自定义添加的网站标签（保留默认标签和添加按钮）
   container.querySelectorAll('.box.add-box[data-id]').forEach(el => el.remove());
 
