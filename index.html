@@ -103,6 +103,10 @@
       </a>
       <p>添加网址</p>
     </div>
+    <div style="width: 500px;height: 25px;" class="box add-box" id="addBox2" onclick="openModal2()">
+      <!-- <i class="fa fa-external-link"></i> -->
+      <p>AI网址集合</p>
+    </div>
 
     <div></div>
 
@@ -114,6 +118,8 @@
   </div>
 
   <script src="./js/data.js"></script>
+  <script src="./js/AIdata.js"></script>
+  <script src="./js/AIscript.js"></script>
   <script src="./js/script.js"></script>
   <script src="./js/lunarCalendar.js"></script>
   <script src="./js/iScript.js"></script>
@@ -153,21 +159,6 @@
     });
   </script>
 
-  <!-- 弹出框 -->
-  <div id="websiteModal1" class="modal1">
-    <div class="modal-content1">
-      <div class="modal-header1">
-        <h2>常用网址集合</h2>
-        <!-- <button class="close-btn" onclick="closeModal1()">&times;</button> -->
-      </div>
-      <div class="modal-body1">
-        <div class="website-grid1" id="websiteGrid1">
-          <!-- 网址项将通过JS动态生成 -->
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- 添加网站 弹出框 -->
   <div id="modal" class="modal">
     <div class="modal-content">
@@ -185,6 +176,37 @@
           <button type="button" onclick="closeModal()">关闭</button>
         </div>
       </form>
+    </div>
+  </div>
+
+  
+  <!-- 常用网址弹出框 -->
+  <div id="websiteModal1" class="modal1">
+    <div class="modal-content1">
+      <div class="modal-header1">
+        <h2>常用网址集合</h2>
+        <!-- <button class="close-btn" onclick="closeModal1()">&times;</button> -->
+      </div>
+      <div class="modal-body1">
+        <div class="website-grid1" id="websiteGrid1">
+          <!-- 网址项将通过JS动态生成 -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI网址弹出框 -->
+  <div id="websiteModal2" class="modal1">
+    <div class="modal-content1">
+      <div class="modal-header1">
+        <h2>AI网址集合</h2>
+        <!-- <button class="close-btn" onclick="closeModal2()">&times;</button> -->
+      </div>
+      <div class="modal-body1">
+        <div class="website-grid1" id="websiteGrid2">
+          <!-- 网址项将通过JS动态生成 -->
+        </div>
+      </div>
     </div>
   </div>
 
