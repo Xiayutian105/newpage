@@ -10,4 +10,5 @@ const websites = [
   { title: "软件下载", url: "http://www.zhanshaoyi.com/", icon: "fas fa-download" }, // 下载图标，代表下载功能
   { title: "阿酷下载", url: "https://www.coolexe.com/", icon: "fas fa-download" }, // 下载图标，代表下载功能
   { title: "网址导航", url: "https://navhub-cc.netlify.app/", icon: "fas fa-compass" } // 指南针图标，代表导航功能
+  { title: "发现AI网址", url: "https://www.faxianai.com/", icon: "fas fa-compass" } // 指南针图标，代表导航功能
 ]

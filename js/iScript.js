@@ -142,7 +142,9 @@ function search() {
     Wallpaper: `https://haowallpaper.com/?page=1&sortType=3&rows=9&isFavorites=false&search=${encodeURIComponent(keyword)}&isSel=true`,
     Film: `https://wld56.net/wlvodsearch/-------------.html?wd=${encodeURIComponent(keyword)}`,
     DuanJu: `https://www.duanju2.com/search/-------------.html?wd=${encodeURIComponent(keyword)}`,
-    Sougou: `https://www.sogou.com/web?query=${encodeURIComponent(keyword)}`
+    Sougou: `https://www.sogou.com/web?query=${encodeURIComponent(keyword)}`,
+    Nami: `https://www.n.cn/search?q=${encodeURIComponent(keyword)}`,
+    Metaso: `https://metaso.cn/search?q=${encodeURIComponent(keyword)}`
   }
   window.open(urlMap[engine], '_blank')
 }
