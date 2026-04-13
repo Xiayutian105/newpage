@@ -17,7 +17,7 @@ const aiWebsites = [
   { title: "学而思九章AI", url: "https://www.mathgpt.com/", icon: "https://icon.bqb.cool/?url=https://www.mathgpt.com/" }, // 学而思九章AI大模型
   { title: "当贝AI", url: "https://ai.dangbei.com/chat", icon: "https://icon.bqb.cool/?url=https://ai.dangbei.com/chat" }, // 当贝AI
   { title: "腾讯AI智能写作", url: "https://aidoc.cnki.net/", icon: "https://icon.bqb.cool/?url=https://aidoc.cnki.net/" }, // 知网AI智能写作
-  { title: "知网AI智能写作", url: "https://aidoc.cnki.net/", icon: "https://icon.bqb.cool/?url=https://aidoc.cnki.net/" }, // 知网AI智能写作
+  
   // ==================== 教学专用AI ====================
   { title: "希沃AI", url: "https://easinote.seewo.com/", icon: "https://icon.bqb.cool/?url=https://easinote.seewo.com/" }, // 希沃AI教学
   { title: "小鸿助教", url: "https://www.xiaohongai.cn/", icon: "https://icon.bqb.cool/?url=https://www.xiaohongai.cn/" }, // 小鸿助教
