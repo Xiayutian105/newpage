@@ -126,40 +126,7 @@
   <script src="./js/lunarCalendar.js"></script>
   <script src="./js/iScript.js"></script>
 
-  <!-- 添加直接调用，确保时间日期能显示 -->
-  <script>
-    // 确保DOM加载完成后调用
-    document.addEventListener('DOMContentLoaded', function () {
-      console.log('DOM加载完成，尝试更新时间日期');
-      // 检查updateDateTime函数是否存在
-      if (typeof updateDateTime === 'function') {
-        updateDateTime();
-        // 设置每秒更新一次
-        setInterval(updateDateTime, 1000);
-      } else {
-        console.error('updateDateTime函数不存在，检查iScript.js是否正确加载');
-        // 如果函数不存在，直接在页面上实现时间日期显示
-        function showDateTime() {
-          const now = new Date();
-          const timeOptions = { hour: 'numeric', minute: 'numeric' };
-          const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
-          const formattedTime = now.toLocaleTimeString('zh-CN', timeOptions);
-          const formattedDate = now.toLocaleDateString('zh-CN', dateOptions);
-
-          const timeElement = document.getElementById('time');
-          const dateElement = document.getElementById('date-lunar');
-
-          if (timeElement && dateElement) {
-            timeElement.textContent = formattedTime;
-            dateElement.textContent = `${formattedDate}（农历日期）`;
-          }
-        }
-
-        showDateTime();
-        setInterval(showDateTime, 1000);
-      }
-    });
-  </script>
+  <!-- 时间日期已由 iScript.js 统一管理 -->
 
   <!-- 添加网站 弹出框 -->
   <div id="modal" class="modal">
