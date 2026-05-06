@@ -9,31 +9,43 @@ try {
   localStorage.setItem('websites', JSON.stringify(websiteData));
 }
 
+// 全局计时器ID，确保只有一个计时器运行
+let dateTimeInterval = null;
+
+// 统一的时间更新函数
+function initDateTime() {
+  // 清除已存在的计时器
+  if (dateTimeInterval) {
+    clearInterval(dateTimeInterval);
+    dateTimeInterval = null;
+  }
+
+  updateDateTime();
+  // 只设置一个计时器
+  dateTimeInterval = setInterval(updateDateTime, 1000);
+}
+
 window.addEventListener('DOMContentLoaded', () => {
-  updateDateTime()
-  renderWebsites()
-  initTouchEvents()
-  setInterval(updateDateTime, 1000)
+  initDateTime();
+  renderWebsites();
+  initTouchEvents();
 
   // 回车键支持
-  const searchInput = document.getElementById('search-input')
+  const searchInput = document.getElementById('search-input');
   searchInput.addEventListener('keydown', function (event) {
     if (event.key === 'Enter') {
-      event.preventDefault()
-      search()
+      event.preventDefault();
+      search();
     }
-  })
-})
+  });
+});
 
 // 更新页面上的日期和时间显示
 function updateDateTime() {
-  console.log('updateDateTime函数被调用');
-
   // 确保DOM元素存在
   const timeElement = document.getElementById('time');
 
   if (!timeElement) {
-    console.error('时间元素未找到');
     return;
   }
 
@@ -116,17 +128,11 @@ function updateDateTime() {
     solarTermText = "节气待计算";
   }
 
-  console.log('准备更新时间和日期:', formattedTime, formattedDate, lunarDateText, solarTermText);
-
   // 更新各个元素的内容
   timeElement.textContent = formattedTime;
   solarDateElement.textContent = formattedDate;
   lunarDateElement.textContent = lunarDateText;
   solarTermElement.textContent = solarTermText;
-
-  // 添加可见性检查
-  console.log('时间元素可见性:', window.getComputedStyle(timeElement).display);
-  console.log('农历日期元素可见性:', window.getComputedStyle(lunarDateElement).display);
 }
 
 // 移除了在DOM加载前执行的setTimeout调用，改为仅在DOMContentLoaded后执行
